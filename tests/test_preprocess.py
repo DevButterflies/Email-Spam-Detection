@@ -114,7 +114,7 @@ def test_prepare_data(preprocessor, sample_data):
 def test_transform_text(preprocessor):
     """Test text transformation functionality."""
     # First prepare the vectorizer with some data
-    sample_text = pd.read_csv(r"C:\Users\atef nasri\Documents\Projects\solo_Projects\Spam_Detection\spam-email-detection-1\data\spam mail.csv")
+    sample_text = pd.read_csv(r"data\spam mail.csv")
     preprocessor.vectorizer.fit(sample_text)
     
     # Test single text transformation
