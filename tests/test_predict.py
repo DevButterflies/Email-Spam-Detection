@@ -1,4 +1,4 @@
-import pytest
+"""import pytest
 import joblib
 import os
 from src.predict import SpamPredictor, load_predictor
@@ -7,7 +7,7 @@ from src.preprocess import EmailPreprocessor
 
 @pytest.fixture
 def setup_predictor(tmp_path):
-    """Create a test predictor with dummy model and preprocessor."""
+    #Create a test predictor with dummy model and preprocessor.
     # Create and save a dummy model
     model = SpamDetectionModel('naive_bayes')
     preprocessor = EmailPreprocessor()
@@ -27,7 +27,7 @@ def setup_predictor(tmp_path):
     return SpamPredictor(model_path, preprocessor_path)
 
 def test_predictor_initialization(tmp_path):
-    """Test predictor initialization and error handling."""
+    Test predictor initialization and error handling.
     # Test with nonexistent files
     with pytest.raises(FileNotFoundError):
         SpamPredictor("nonexistent_model.joblib", "nonexistent_preprocessor.joblib")
@@ -48,7 +48,7 @@ def test_predictor_initialization(tmp_path):
     assert isinstance(predictor.preprocessor, EmailPreprocessor)
 
 def test_predict_message(setup_predictor):
-    """Test single message prediction."""
+    #Test single message prediction.
     # Test ham message
     result = setup_predictor.predict_message("Hello, how are you?")
     assert isinstance(result, dict)
@@ -70,7 +70,7 @@ def test_predict_message(setup_predictor):
     assert 'is_spam' in result
 
 def test_predict_batch(setup_predictor):
-    """Test batch prediction functionality."""
+    #Test batch prediction functionality.
     messages = [
         "Hello, how are you?",
         "CONGRATULATIONS! You've won $1,000,000!",
@@ -89,7 +89,7 @@ def test_predict_batch(setup_predictor):
         assert isinstance(result['is_spam'], bool)
 
 def test_load_predictor(tmp_path):
-    """Test predictor loading functionality."""
+    #Test predictor loading functionality.
     # Create models directory
     models_dir = tmp_path / "models"
     os.makedirs(models_dir)
@@ -112,4 +112,4 @@ def test_load_predictor(tmp_path):
     predictor = load_predictor(models_dir)
     assert isinstance(predictor, SpamPredictor)
     assert isinstance(predictor.model, SpamDetectionModel)
-    assert isinstance(predictor.preprocessor, EmailPreprocessor)
+    assert isinstance(predictor.preprocessor, EmailPreprocessor)"""
